@@ -33,7 +33,6 @@ export default {
 <style>
 body {
   background-color: #121212;
-  color: white;
 }
 .loading {
   background-color: rgba(0, 0, 0, 0.6);

@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .dropdown {
+  color: white;
   cursor: pointer;
   border-radius: 50%;
   transition: all ease 0.18s;

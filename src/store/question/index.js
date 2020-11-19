@@ -18,16 +18,17 @@ const mutations = {
 };
 
 const actions = {
-    async postData({ commit }, editordata) {
+    async postData({ commit }, {editorData,category,level}) {
         store.commit("setLoading",true)
         store.commit("clearError")
+        console.log("postData:",editorData,category,level)
         const user = store.getters.getCurrentUser;
         const newQuestion = {
             author: user.uid,
             authorName:user.name,
-            content: editordata,
-            category:"all",
-            level:"all",
+            content: editorData,
+            category:category,
+            level:level,
             likes:[],
             dislikes:[],
             comments:[]

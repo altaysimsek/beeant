@@ -7,13 +7,30 @@
         gönderebilirsin.
       </p>
       <ckeditor
+        class="red"
         :editor="editor"
         v-model="editorData"
         :config="editorConfig"
       ></ckeditor>
-      <select class="form-control">
-        <option>Default select</option>
-      </select>
+      <div class="form-inline mt-2">
+        <div class="mr-auto">
+          <span>Kategori : </span>
+          <select class="form-control" v-model="kategori">
+            <option value="Dag" selected>Dag</option>
+            <option value="Tas">Taş</option>
+            <option value="Dere">Dere</option>
+            <option value="Tepe">Tepe</option>
+          </select>
+        </div>
+        <div>
+          <span>Seviye : </span>
+          <select class="form-control" name="sa" v-model="level">
+            <option value="Grandmaster" selected="selected">Grandmaster</option>
+            <option value="Master">Master</option>
+            <option value="Noobie">Noobie</option>
+          </select>
+        </div>
+      </div>
       <button class="question" @click="postData">SORU SOR</button>
     </div>
     <loading v-if="loadingState"></loading>
@@ -31,6 +48,8 @@ export default {
   data() {
     return {
       editor: ClassicEditor,
+      kategori: "all",
+      level: "all",
       editorData: "",
       editorConfig: {
         // The configuration of the editor.
@@ -57,9 +76,23 @@ export default {
     },
   },
   methods: {
-    formValidation() {},
+    formValidation() {
+      if (this.editorData.length == 0) {
+        this.$toast.open({
+          message:
+            "Boş, doldurulmamış alan bırakmayın. Kategori ve seviye seçmeyi unutmayın 😀 ",
+          type: "error",
+          // all of other options may go here
+        });
+        return false;
+      }
+    },
     async postData() {
-      this.$store.dispatch("postData", this.editorData);
+      this.$store.dispatch("postData", {
+        editorData: this.editorData,
+        category: this.kategori,
+        level: this.level,
+      });
       this.editorData = "";
     },
   },
@@ -70,10 +103,17 @@ export default {
 .ask {
   background-color: #202020;
   border-radius: 10px;
+
   h2 {
     font-weight: 700;
+    color: white;
   }
   p {
+    color: #93a0b1;
+    font-weight: 600;
+  }
+
+  span {
     color: #93a0b1;
     font-weight: 600;
   }
@@ -85,7 +125,7 @@ export default {
     font-weight: 700;
     color: white;
     border: none;
-    color: white;
+
     background-color: #533ed6;
     &:hover {
       background-color: #3e2fa3;

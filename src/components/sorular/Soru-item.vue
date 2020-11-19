@@ -121,6 +121,7 @@ export default {
 
       p {
         word-break: break-all;
+        color: white;
       }
     }
 
