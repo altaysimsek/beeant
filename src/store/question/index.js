@@ -21,7 +21,7 @@ const actions = {
     async postData({ commit }, {editorData,category,level}) {
         store.commit("setLoading",true)
         store.commit("clearError")
-        console.log("postData:",editorData,category,level)
+        
         const user = store.getters.getCurrentUser;
         const newQuestion = {
             author: user.uid,
