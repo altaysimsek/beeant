@@ -90,10 +90,10 @@ const likeOrDislikeQuesiton = async (questionID, state, likerID) => {
         ) {
             let likesArray = doc.data().questionData.likes;
             let dislikeArray = doc.data().questionData.dislikes;
-            const newLikes = likesArray.splice(likesArray.indexOf(likerID), 1);
+            likesArray.splice(likesArray.indexOf(likerID), 1);
             dislikeArray.push(likerID);
             let newData = doc.data().questionData;
-            newData.likes = newLikes;
+            newData.likes = likesArray;
             newData.dislikes = dislikeArray;
             try {
                 await questionRef.update({
@@ -111,14 +111,14 @@ const likeOrDislikeQuesiton = async (questionID, state, likerID) => {
         ) {
             let likesArray = doc.data().questionData.likes;
             let dislikeArray = doc.data().questionData.dislikes;
-            const newDislike = dislikeArray.splice(
+             dislikeArray.splice(
                 dislikeArray.indexOf(likerID),
                 1
             );
             likesArray.push(likerID);
             let newData = doc.data().questionData;
             newData.likes = likesArray;
-            newData.dislikes = newDislike;
+            newData.dislikes = dislikeArray;
             try {
                 await questionRef.update({
                     questionData: newData,
@@ -158,6 +158,7 @@ const likeOrDislikeQuesiton = async (questionID, state, likerID) => {
             }
         }
     }
+    store.dispatch("getUpdateQuestions");
 };
 
 export {
