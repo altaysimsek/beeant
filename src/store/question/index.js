@@ -1,5 +1,5 @@
 import store from "@/store/index";
-import { createQuestionFromUser,getQuestions } from "../../firebase/utils";
+import { createQuestionFromUser, getQuestions } from "../../firebase/utils";
 
 const state = {
     postQuestion: null,
@@ -12,6 +12,13 @@ const getters = {
     },
     getQuestions(state) {
         return state.questions;
+    },
+    getSpecificQuestion(state) {
+        
+        
+        return (questionID) => {
+            return state.questions.filter(question => question.id == questionID);
+        }
     },
 };
 
@@ -49,10 +56,10 @@ const actions = {
         commit("setPostQuestion", newQuestion);
         store.commit("setLoading", false);
     },
-    async getUpdateQuestions({commit}){
+    async getUpdateQuestions({ commit }) {
         const questions = await getQuestions();
         commit("setQuestion", questions);
-    }
+    },
 };
 
 export default {

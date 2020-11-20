@@ -26,7 +26,7 @@ export default {
     },
     async created() {
         this.$store.commit("setLoading", true);
-        this.$store.dispatch("getUpdateQuestions")
+        await this.$store.dispatch("getUpdateQuestions")
         this.$store.commit("setLoading", false);
     },
 };

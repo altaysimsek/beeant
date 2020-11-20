@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="container pt-5">
     <div class="ask p-2">
       <h2>Bir soru sor</h2>
@@ -34,6 +35,10 @@
       <button class="question" @click="postData">SORU SOR</button>
     </div>
     <loading v-if="loadingState"></loading>
+  </div>
+  <div class="container-fluid mt-5 fixed-bottom">
+  <img src="../assets/gg.png"  style="width:100%;" alt="gg-resim">
+  </div>
   </div>
 </template>
 

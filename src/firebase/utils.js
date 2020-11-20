@@ -57,6 +57,7 @@ const getQuestions = async () => {
 
 const likeOrDislikeQuesiton = async (questionID, state, likerID) => {
     store.commit("clearError");
+    
     const questionRef = await db.doc(`question/${questionID}`);
     const doc = await questionRef.get();
     if (!doc.exists) {

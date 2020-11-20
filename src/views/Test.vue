@@ -5,6 +5,7 @@
       v-model="editorData"
       :config="editorConfig"
     ></ckeditor>
+    <p>TEST DIR</p>
   </div>
 </template>
 

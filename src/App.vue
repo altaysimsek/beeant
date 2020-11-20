@@ -16,6 +16,9 @@ export default {
       return this.$store.getters.getErrors;
     },
   },
+  created(){
+    this.$store.dispatch("getUpdateQuestions");
+  },
   watch: {
     errors(oldVal) {
       if (oldVal.length > 0) {

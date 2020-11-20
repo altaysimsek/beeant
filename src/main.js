@@ -54,6 +54,7 @@ firebase.auth().onAuthStateChanged((user) => {
     //If there is a guard at any page,you can't reach while logged in when you refresh this page ,it's a solution for this.
     //You don't need to render every time only renders when user auth changed
     if (!app) {
+        
         app = new Vue({
             created() {
                 
@@ -62,6 +63,7 @@ firebase.auth().onAuthStateChanged((user) => {
             router,
             render: (h) => h(App),
         }).$mount("#app");
+        
     }
     
 });

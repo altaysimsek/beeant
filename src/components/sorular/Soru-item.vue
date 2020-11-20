@@ -14,7 +14,6 @@
         </div>
         <div class="own-card-body">
             <span class="content mb-auto">
-                
                 <p>{{ ToText(list.data.questionData.content) }}</p>
             </span>
             <span class="detail">
@@ -33,13 +32,16 @@
             >
         </div>
         <div class="own-card-end">
-            <button class="classy-btn">Devamını oku!</button>
+            <router-link :to="`/sorular/${list.id}`"
+                ><button class="classy-btn">Devamını oku!</button></router-link
+            >
         </div>
     </div>
 </template>
 
 <script>
 import { likeOrDislikeQuesiton } from "@/firebase/utils";
+import Vue from "vue";
 export default {
     props: ["list"],
     methods: {
@@ -55,7 +57,15 @@ export default {
         },
         sendLike(state) {
             const user = this.$store.getters.getCurrentUser;
-            likeOrDislikeQuesiton(this.list.id,state,user.uid);
+            if (!user) {
+                Vue.$toast.open({
+                    message: "Önce giriş yapmalısın.",
+                    type: "error",
+                    // all of other options may go here
+                });
+                return;
+            }
+            likeOrDislikeQuesiton(this.list.id, state, user.uid);
         },
     },
 };

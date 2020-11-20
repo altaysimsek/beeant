@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Test from "@/views/Test.vue";
+import SpecificSoru from "@/views/SpecificSoru.vue"
 import Soruekle from "@/views/Soruekle.vue";
 import Sorular from "@/views/Sorular.vue";
 
@@ -27,10 +28,15 @@ const routes = [
         component: Sorular,
     },
     {
-        path: "/profil",
-        name: "Profil",
+        path: "/profile",
+        name: "Profile",
         component: Test,
         beforeEnter: AuthGuard,
+    },
+    {
+        path: "/sorular/:id",
+        name: "Custom Sorular",
+        component: SpecificSoru,
     },
 ];
 
