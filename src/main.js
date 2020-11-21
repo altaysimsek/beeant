@@ -3,6 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+
+import Trend from "vuetrend"
+
+Vue.use(Trend)
+
 //Toast Notify
 import VueToast from 'vue-toast-notification';
 // Import one of the available themes

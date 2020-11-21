@@ -17,10 +17,10 @@
                 <p>{{ ToText(list.data.questionData.content) }}</p>
             </span>
             <span class="detail">
-                <span class="author"
+                <router-link :to="`/profile/${list.data.questionData.author}`"><span class="author"
                     ><i class="fas fa-at"></i
                     >{{ list.data.questionData.authorName }}</span
-                >
+                ></router-link>
                 <span class="category"
                     ><i class="fas fa-bars"></i
                     >{{ list.data.questionData.category }}</span

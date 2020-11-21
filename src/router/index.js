@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Test from "@/views/Test.vue";
+//import Test from "@/views/Test.vue";
 import SpecificSoru from "@/views/SpecificSoru.vue"
 import Soruekle from "@/views/Soruekle.vue";
 import Sorular from "@/views/Sorular.vue";
+import Profile from "@/views/Profile.vue"
 
 import AuthGuard from "./auth-guard";
 
@@ -30,7 +31,13 @@ const routes = [
     {
         path: "/profile",
         name: "Profile",
-        component: Test,
+        component: Profile,
+        beforeEnter: AuthGuard,
+    },
+    {
+        path: "/profile/:id",
+        name: "Profile SelectUser",
+        component: Profile,
         beforeEnter: AuthGuard,
     },
     {

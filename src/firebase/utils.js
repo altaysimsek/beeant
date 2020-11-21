@@ -162,9 +162,18 @@ const likeOrDislikeQuesiton = async (questionID, state, likerID) => {
     store.dispatch("getUpdateQuestions");
 };
 
+const getUserFromID = async (userID = null) => {
+    const userRef = db.doc(`users/${userID}`);
+    const snapshot = await userRef.get();
+    if(snapshot.exists){
+        return snapshot.data();
+    }
+}
+
 export {
     createUserProfileDocument,
     createQuestionFromUser,
     getQuestions,
     likeOrDislikeQuesiton,
+    getUserFromID
 };

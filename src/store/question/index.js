@@ -20,6 +20,12 @@ const getters = {
             return state.questions.filter(question => question.id == questionID);
         }
     },
+    getSpecificQuestionfromUserId(state) {
+        return (userId) => {
+            return state.questions.filter(question => question.data.questionData.author == userId);
+        }
+    },
+    
 };
 
 const mutations = {

@@ -3,21 +3,28 @@ import "firebase/auth";
 import router from "@/router/index.js";
 import store from "@/store/index";
 
-import { createUserProfileDocument } from "../../firebase/utils";
+import { createUserProfileDocument,getUserFromID } from "../../firebase/utils";
 
 const state = {
     currentUser: null,
+    wantedUser: null,
 };
 
 const getters = {
     getCurrentUser(state) {
         return state.currentUser;
     },
+    getWantedUser(state) {
+        return state.wantedUser;
+    },
 };
 
 const mutations = {
     setCurrentUser(state, payload) {
         state.currentUser = payload;
+    },
+    setWantedUser(state,payload) {
+        state.wantedUser = payload;
     },
 };
 
@@ -63,6 +70,10 @@ const actions = {
     autoSignIn({ commit }, payload) {
         commit("setCurrentUser", payload);
     },
+    async selectUser({commit},payload){
+        const user = await getUserFromID(payload);
+        commit("setWantedUser",user);
+    }
 };
 
 export default {
