@@ -34,7 +34,7 @@ export default {};
         font-size: 22px;
     }
     h1 {
-        font-size: 88px;
+        font-size: 64px;
         margin-bottom: 75px;
     }
     .backgroundtt {
