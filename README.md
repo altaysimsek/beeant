@@ -1,16 +1,17 @@
 
 # 📡Beeant
 
-  Beeant basitçe bir soru sorma platformudur.
+  Beeant is basically question platform
  
-  ## 🔱Amacım
+  ## 🔱Purpose
 
-Projeyi geliştirirken asıl amacım **vue, vuex, vue router** üzerinde daha rahat hareket edebilecek şekilde pratik yapmaktı. Aslında react -> redux öğrendiğim sırada bir anda kafada çakan şimşekler sonucu state management'ı anlayıp daha önce öğrenmiş olduğum vue'ya geçtim ve vuex'i öğrenmeye anlamaya çalıştım , kavramak düşündüğümden çok daha hızlı oldu.
-## 🎁Özellikleri
+When i developed this project my main point is make practice with **vue, vuex, vue router** . Actually while i'm learning react, redux, i suddenly understood state management and switched to vue and I tried to understand vuex, understanding was much faster than I thought. Of course i need to make practice with that so i try to developed a basic platform
 
- - Google ile giriş yap.
- - Kullanıcı profillerini gezme.
- - Beğeni sistemi
+## 🎁Features
+
+ - Login with Google.
+ - Explore different users profile.
+ - Like/dislike system.
 
 ##  🚀Project setup
 
