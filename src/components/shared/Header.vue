@@ -23,6 +23,14 @@
             exact
             >Sorular</router-link
           >
+          <router-link
+            to="/soruekle"
+            tag="a"
+            class="nav-link"
+            active-class="active"
+            exact
+            >Soru Ekle</router-link
+          >
         </div>
       </div>
       <button
