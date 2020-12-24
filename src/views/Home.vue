@@ -2,7 +2,7 @@
     <div class="home container-fluid">
         <div class="row" style="margin-top:-100px;">
             <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
-                <h1>Aklındaki düşünceyi yaz, paylaş ve sorunu sor</h1>
+                <h1>Aklındaki düşünceyi yaz, paylaş ve sorunu sor 🎈</h1>
                 <p>Her düşünceni paylaş ve diğer kullanıcılardan tepki al</p>
             </div>
             <div class="col-md-6">
