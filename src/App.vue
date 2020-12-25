@@ -34,8 +34,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 body {
   background-color: #121212;
+  font-family: 'Space Grotesk', sans-serif;
 }
 .loading {
   background-color: rgba(0, 0, 0, 0.6);
