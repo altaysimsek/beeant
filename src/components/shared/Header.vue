@@ -75,9 +75,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-  font-family: "Nunito", sans-serif;
-}
+// .navbar {
+//   font-family: "Nunito", sans-serif;
+// }
 .navbar-brand {
   font-weight: 700;
   font-size: 32px;
