@@ -1,6 +1,6 @@
 <template>
     <div class="activity-card mb-5 container" >
-        <h2 >Activity Report</h2>
+        <h2>Activity Report</h2>
         <trend
             :data="[
                 5,
