@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <loading v-if="loadingState"></loading>
         <div class="row">
             <div class="col-md-4">
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-fluid {
+.container{
     color: white;
 }
 </style>
