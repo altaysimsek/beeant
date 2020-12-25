@@ -104,6 +104,7 @@ export default {
             }
             &:hover {
                 transform: scale(1.1);
+                filter: brightness(150%);
             }
         }
         .dislike {
@@ -120,6 +121,7 @@ export default {
             }
             &:hover {
                 transform: scale(1.1);
+                filter: brightness(150%);
             }
         }
     }
@@ -159,6 +161,7 @@ export default {
                 }
                 &:hover {
                     transform: scale(1.05);
+                    filter: brightness(200%);
                 }
             }
             .category {
@@ -186,10 +189,12 @@ export default {
             font-weight: 600;
             background-color: #533ed6;
             font-size: 16px;
+            padding: .5rem;
             border: none;
             transition: all ease 0.19s;
             &:hover {
                 background-color: #3f30a1;
+                color: #fff; 
             }
         }
     }
