@@ -1,44 +1,50 @@
 <template>
   <div>
-  <div class="container pt-5">
-    <div class="ask p-2">
-      <h2>Bir soru sor</h2>
-      <p>
-        Sormak istediğin soruyu alttaki metin editöründe düzenleyerek
-        gönderebilirsin.
-      </p>
-      <ckeditor
-        class="red"
-        :editor="editor"
-        v-model="editorData"
-        :config="editorConfig"
-      ></ckeditor>
-      <div class="form-inline mt-2">
-        <div class="mr-auto">
-          <span>Kategori : </span>
-          <select class="form-control" v-model="kategori">
-            <option value="Dag" selected>Dag</option>
-            <option value="Tas">Taş</option>
-            <option value="Dere">Dere</option>
-            <option value="Tepe">Tepe</option>
-          </select>
+    <div class="container pt-5">
+      <div class="ask p-2">
+        <h2>Bir soru sor</h2>
+        <p>
+          Sormak istediğin soruyu alttaki metin editöründe düzenleyerek
+          gönderebilirsin.
+        </p>
+        <ckeditor
+          class="red"
+          :editor="editor"
+          v-model="editorData"
+          :config="editorConfig"
+        ></ckeditor>
+        <div class="form-inline mt-2">
+          <div class="mr-auto">
+            <span>Kategori : </span>
+            <select class="form-control" v-model="kategori">
+              <option value="Dag" selected>Dag</option>
+              <option value="Tas">Taş</option>
+              <option value="Dere">Dere</option>
+              <option value="Tepe">Tepe</option>
+            </select>
+          </div>
+          <div>
+            <span>Seviye : </span>
+            <select class="form-control" name="sa" v-model="level">
+              <option value="Grandmaster" selected="selected"
+                >Grandmaster</option
+              >
+              <option value="Master">Master</option>
+              <option value="Noobie">Noobie</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <span>Seviye : </span>
-          <select class="form-control" name="sa" v-model="level">
-            <option value="Grandmaster" selected="selected">Grandmaster</option>
-            <option value="Master">Master</option>
-            <option value="Noobie">Noobie</option>
-          </select>
+        <div class="btn-div">
+          <button class="question" @click="postData(formValidation())">
+            SORU SOR
+          </button>
         </div>
       </div>
-      <button class="question" @click="postData">SORU SOR</button>
+      <loading v-if="loadingState"></loading>
     </div>
-    <loading v-if="loadingState"></loading>
-  </div>
-  <div class="container-fluid mt-5 fixed-bottom">
-  <img src="../assets/gg.png"  style="width:100%;" alt="gg-resim">
-  </div>
+    <div class="container-fluid mt-5 fixed-bottom">
+      <img src="../assets/gg.png" style="width:100%;" alt="gg-resim" />
+    </div>
   </div>
 </template>
 
@@ -82,7 +88,7 @@ export default {
   },
   methods: {
     formValidation() {
-      if (this.editorData.length == 0) {
+      if (this.editorData.length == 0 || this.level == 'all' || this.kategori == 'all') {
         this.$toast.open({
           message:
             "Boş, doldurulmamış alan bırakmayın. Kategori ve seviye seçmeyi unutmayın 😀 ",
@@ -90,15 +96,19 @@ export default {
           // all of other options may go here
         });
         return false;
+      } else {
+        return true;
       }
     },
-    async postData() {
-      this.$store.dispatch("postData", {
-        editorData: this.editorData,
-        category: this.kategori,
-        level: this.level,
-      });
-      this.editorData = "";
+    async postData(e) {
+      if (e) {
+        this.$store.dispatch("postData", {
+          editorData: this.editorData,
+          category: this.kategori,
+          level: this.level,
+        });
+        this.editorData = "";
+      }
     },
   },
 };
@@ -122,16 +132,21 @@ export default {
     color: #93a0b1;
     font-weight: 600;
   }
+  .btn-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .question {
     border-radius: 50px;
-    padding: 5px 20px;
+    padding: 0.7rem 3rem;
     margin: 10px 0px;
     font-size: 20px;
     font-weight: 700;
     color: white;
     border: none;
-
     background-color: #533ed6;
+
     &:hover {
       background-color: #3e2fa3;
     }
