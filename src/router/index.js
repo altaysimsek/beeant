@@ -6,6 +6,7 @@ import SpecificSoru from "@/views/SpecificSoru.vue"
 import Soruekle from "@/views/Soruekle.vue";
 import Sorular from "@/views/Sorular.vue";
 import Profile from "@/views/Profile.vue"
+import Hakkında from "@/views/Hakkında.vue"
 
 import AuthGuard from "./auth-guard";
 
@@ -45,6 +46,11 @@ const routes = [
         name: "Custom Sorular",
         component: SpecificSoru,
     },
+    {
+        path: "/hakkinda",
+        name: "Hakkında",
+        component: Hakkında,
+    }
 ];
 
 const router = new VueRouter({

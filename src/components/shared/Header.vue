@@ -31,6 +31,14 @@
             exact
             >Soru Ekle</router-link
           >
+          <router-link
+            to="/hakkinda"
+            tag="a"
+            class="nav-link"
+            active-class="active"
+            exact
+            >Hakkında</router-link
+          >
         </div>
       </div>
       <button
