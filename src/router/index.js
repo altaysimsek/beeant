@@ -7,6 +7,7 @@ import Soruekle from "@/views/Soruekle.vue";
 import Sorular from "@/views/Sorular.vue";
 import Profile from "@/views/Profile.vue"
 import Hakkında from "@/views/Hakkında.vue"
+// import Auth from "@/views/Auth.vue"
 
 import AuthGuard from "./auth-guard";
 
@@ -50,7 +51,12 @@ const routes = [
         path: "/hakkinda",
         name: "Hakkında",
         component: Hakkında,
-    }
+    },
+    // {
+    //     path: "/auth",
+    //     name: "Auth",
+    //     component: Auth,
+    // }
 ];
 
 const router = new VueRouter({
