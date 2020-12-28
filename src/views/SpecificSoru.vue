@@ -5,7 +5,7 @@
       v-html="specificQuestion[0].data.questionData.content"
     ></div>
     <div>
-      <span class="label">this page in Development</span>
+      <span class="label">Soruyu çözmeyi unutma</span>
     </div>
   </div>
 </template>

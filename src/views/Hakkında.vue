@@ -1,4 +1,4 @@
-p<template>
+<template>
   <div class="template">
     <div class="desc">
       <h6>BEEANT Nedir?</h6>

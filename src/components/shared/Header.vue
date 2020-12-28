@@ -39,6 +39,15 @@
             exact
             >Hakkında</router-link
           >
+          <!-- <router-link
+            to="/auth"
+            tag="a"
+            class="nav-link auth"
+            active-class="active"
+            v-if="!getCurrentUser"
+            exact
+            >Giriş yap/Kayıt ol</router-link
+          > -->
         </div>
       </div>
       <button
@@ -97,7 +106,11 @@ export default {
 }
 .nav-link {
   font-size: 18px;
+  text-decoration: none;
 }
+// .auth{
+//     margin-left: 200px;
+//   }
 
 .btn-google {
   display: flex;
